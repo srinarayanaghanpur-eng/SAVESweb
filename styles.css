@@ -1097,7 +1097,6 @@ address {
   }
 
   .three-column,
-  .curriculum-flow,
   .aerial-grid,
   .steps,
   .modal-steps,
@@ -1105,6 +1104,12 @@ address {
   .activity-gallery,
   .curriculum-panel {
     grid-template-columns: 1fr;
+  }
+
+  /* Keep 2-column layout for curriculum on tablet */
+  .curriculum-flow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   /* Keep 2-column layout for tablet on larger grids */
@@ -1124,20 +1129,10 @@ address {
     grid-template-columns: 1fr;
   }
 
-  .curriculum-node:not(:last-child)::after {
-    top: auto;
-    right: 50%;
-    bottom: -20px;
-    width: 2px;
-    height: 24px;
-    transform: translateX(50%);
-  }
-
+  /* Simplify curriculum nodes on tablet - hide connecting lines */
+  .curriculum-node:not(:last-child)::after,
   .curriculum-node:not(:last-child)::before {
-    top: auto;
-    right: calc(50% - 5px);
-    bottom: -24px;
-    transform: rotate(135deg);
+    display: none;
   }
 
   .leadership article {
@@ -1296,6 +1291,25 @@ address {
     padding: 20px;
   }
 
+  .curriculum-node {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .curriculum-image {
+    margin-bottom: 12px;
+    max-height: 150px;
+  }
+
+  .curriculum-node summary h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .curriculum-node p {
+    font-size: 0.9rem;
+  }
+
   .card-icon {
     margin-bottom: 16px;
   }
@@ -1351,6 +1365,12 @@ address {
 
   .modal-body {
     font-size: 0.95rem;
+  }
+
+  /* Hide curriculum node connecting lines on mobile */
+  .curriculum-node:not(:last-child)::after,
+  .curriculum-node:not(:last-child)::before {
+    display: none;
   }
 
   .site-footer {
