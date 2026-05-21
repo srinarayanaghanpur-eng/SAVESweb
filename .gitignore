@@ -17,6 +17,8 @@ server.out.log
 
 # Large local media files
 *.mp4
+!assets/*-10mb.mp4
+.tools/
 
 # OS and editor files
 .DS_Store
