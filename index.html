@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/school-logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/school-logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/school-logo.png">
+  <link rel="preload" as="image" href="assets/school-hero-1280.webp" type="image/webp" imagesrcset="assets/school-hero-640.webp 640w, assets/school-hero-960.webp 960w, assets/school-hero-1280.webp 1280w" imagesizes="100vw" fetchpriority="high">
   <link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;Sri Adarshavani Vidyanikethan High School&quot;,&quot;short_name&quot;:&quot;SAVS High School&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;assets/school-logo.png&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/png&quot;},{&quot;src&quot;:&quot;assets/school-logo.png&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/png&quot;}],&quot;theme_color&quot;:&quot;#0d6b68&quot;,&quot;background_color&quot;:&quot;#ffffff&quot;}">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1S5L8N4TRJ"></script>
   <script>
@@ -27,7 +28,10 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Sri Adarshavani Vidyanikethan High School home">
-      <img class="brand-logo" src="assets/school-logo.png" alt="Sri Adarshavani Vidyanikethan High School logo">
+      <picture>
+        <source type="image/webp" srcset="assets/school-logo-96.webp 96w, assets/school-logo-192.webp 192w, assets/school-logo-384.webp 384w, assets/school-logo-512.webp 512w" sizes="44px">
+        <img class="brand-logo" src="assets/school-logo.png" alt="Sri Adarshavani Vidyanikethan High School logo" width="512" height="512" loading="eager" decoding="async">
+      </picture>
       <span>
         <strong>Sri Adarshavani Vidyanikethan High School</strong>
         <small>Established in 2010</small>
@@ -36,7 +40,7 @@
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#about">About</a>
-      <a href="#aerial" data-section-open="aerial">Aerial View</a>
+      <a href="#aerial">Aerial View</a>
       <a href="#activities" data-section-open="activities">Activities</a>
       <a href="#facilities" data-section-open="facilities">Facilities</a>
       <a href="#academics" data-section-open="academics">Academics</a>
@@ -49,7 +53,10 @@
 
   <main id="home">
     <section class="hero">
-      <img src="assets/school-hero.jpeg" alt="Sri Adarshavani Vidyanikethan High School campus building">
+      <picture>
+        <source type="image/webp" srcset="assets/school-hero-640.webp 640w, assets/school-hero-960.webp 960w, assets/school-hero-1280.webp 1280w" sizes="100vw">
+        <img src="assets/school-hero.jpeg" alt="Sri Adarshavani Vidyanikethan High School campus building" width="1280" height="853" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <p class="eyebrow">Welcome to our school</p>
@@ -66,15 +73,23 @@
     </section>
 
     <section id="aerial" class="section aerial-section">
-      <div class="section-heading">
-        <p class="eyebrow">Aerial View</p>
-        <h2>Drone view of our school campus</h2>
-      </div>
       <div class="aerial-grid single-video">
-        <video controls preload="metadata" poster="assets/school-hero.jpeg">
+        <video id="aerialVideo" muted playsinline preload="none" poster="assets/school-hero.webp">
           <source src="assets/school-aerial-2-10mb.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <div class="aerial-overlay">
+          <div class="aerial-heading-content">
+            <p class="eyebrow">Aerial View</p>
+            <h2>Drone view of our school campus</h2>
+          </div>
+          <button class="aerial-play-button" id="aerialPlayButton" aria-label="Play aerial video">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="29" fill="white" fill-opacity="0.9"/>
+              <path d="M24 20v20l14-10z" fill="#000"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -113,7 +128,10 @@
       </div>
       <div class="leadership">
         <article>
-          <img class="leader-photo" src="assets/chairman.jpg" alt="Naganaboina Ravi, Chairman">
+          <picture>
+            <source type="image/webp" srcset="assets/chairman-240.webp 240w, assets/chairman-480.webp 480w, assets/chairman-720.webp 720w, assets/chairman-900.webp 900w" sizes="(max-width: 720px) 160px, 240px">
+            <img class="leader-photo" src="assets/chairman.jpg" alt="Naganaboina Ravi, Chairman" width="900" height="600" loading="lazy" decoding="async">
+          </picture>
           <span>Chairman</span>
           <h3>Naganaboina Ravi</h3>
           <p>Chairman of Sri Adarshavani Group of Schools</p>
@@ -124,7 +142,10 @@
           </ul>
         </article>
         <article>
-          <img class="leader-photo" src="assets/director.png" alt="Bathini Bixapathi, Director">
+          <picture>
+            <source type="image/webp" srcset="assets/director-240.webp 240w, assets/director-480.webp 480w, assets/director-720.webp 720w, assets/director-900.webp 900w" sizes="(max-width: 720px) 160px, 240px">
+            <img class="leader-photo" src="assets/director.png" alt="Bathini Bixapathi, Director" width="900" height="600" loading="lazy" decoding="async">
+          </picture>
           <span>Director</span>
           <h3>Bathini Bixapathi</h3>
           <p>Director</p>
@@ -162,99 +183,171 @@
       </div>
       <div class="activity-gallery">
         <figure>
-          <img src="assets/activity-26-jan-pyramid.jpg" alt="Students performing pyramid activity on 26 January">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-26-jan-pyramid-480.webp 480w, assets/activity-26-jan-pyramid-800.webp 800w, assets/activity-26-jan-pyramid-1200.webp 1200w, assets/activity-26-jan-pyramid-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-26-jan-pyramid.jpg" alt="Students performing pyramid activity on 26 January" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>26 January</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-annual-day.jpg" alt="Students performing dance on annual day">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-annual-day-480.webp 480w, assets/activity-annual-day-800.webp 800w, assets/activity-annual-day-1200.webp 1200w, assets/activity-annual-day-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-annual-day.jpg" alt="Students performing dance on annual day" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Annual Day</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-mock-polling.jpg" alt="Students participating in mock polling activity">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-mock-polling-480.webp 480w, assets/activity-mock-polling-800.webp 800w, assets/activity-mock-polling-1200.webp 1200w, assets/activity-mock-polling-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-mock-polling.jpg" alt="Students participating in mock polling activity" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Mock Polling</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-no-bag-day.jpg" alt="Students showing drawings during No Bag Day">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-no-bag-day-480.webp 480w, assets/activity-no-bag-day-800.webp 800w, assets/activity-no-bag-day-1200.webp 1200w, assets/activity-no-bag-day-1498.webp 1498w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-no-bag-day.jpg" alt="Students showing drawings during No Bag Day" width="1498" height="1123" loading="lazy" decoding="async">
+          </picture>
           <figcaption>No Bag Day</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-cultural.jpg" alt="Students taking part in cultural activity">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-cultural-480.webp 480w, assets/activity-cultural-800.webp 800w, assets/activity-cultural-1200.webp 1200w, assets/activity-cultural-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-cultural.jpg" alt="Students taking part in cultural activity" width="1600" height="900" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Cultural Activities</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-assembly.jpg" alt="Students standing for school assembly">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-assembly-480.webp 480w, assets/activity-assembly-800.webp 800w, assets/activity-assembly-1200.webp 1200w, assets/activity-assembly-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-assembly.jpg" alt="Students standing for school assembly" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
           <figcaption>School Assembly</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-classroom.jpg" alt="Students learning with teacher">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-classroom-480.webp 480w, assets/activity-classroom-800.webp 800w, assets/activity-classroom-1200.webp 1200w, assets/activity-classroom-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-classroom.jpg" alt="Students learning with teacher" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Science Learning</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-computer-lab.jpg" alt="Students learning in computer lab">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-computer-lab-480.webp 480w, assets/activity-computer-lab-800.webp 800w, assets/activity-computer-lab-1200.webp 1200w, assets/activity-computer-lab-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-computer-lab.jpg" alt="Students learning in computer lab" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Computer Lab</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-blue-day.jpg" alt="Children celebrating Blue Day">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-blue-day-480.webp 480w, assets/activity-blue-day-800.webp 800w, assets/activity-blue-day-1200.webp 1200w, assets/activity-blue-day-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-blue-day.jpg" alt="Children celebrating Blue Day" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Blue Day</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-dance.jpg" alt="Students performing dance on stage">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-dance-480.webp 480w, assets/activity-dance-800.webp 800w, assets/activity-dance-1200.webp 1200w, assets/activity-dance-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-dance.jpg" alt="Students performing dance on stage" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Dance Performance</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-cultural-drama-1.jpg" alt="Students performing cultural drama on stage">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-cultural-drama-1-480.webp 480w, assets/activity-cultural-drama-1-800.webp 800w, assets/activity-cultural-drama-1-1200.webp 1200w, assets/activity-cultural-drama-1-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-cultural-drama-1.jpg" alt="Students performing cultural drama on stage" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Cultural Drama</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-cultural-drama-2.jpg" alt="Students performing cultural dance drama">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-cultural-drama-2-480.webp 480w, assets/activity-cultural-drama-2-800.webp 800w, assets/activity-cultural-drama-2-1200.webp 1200w, assets/activity-cultural-drama-2-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-cultural-drama-2.jpg" alt="Students performing cultural dance drama" width="1600" height="1065" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Cultural Dance</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-mathematics-day-formation.jpeg" alt="Students forming Mathematics Day text">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-mathematics-day-formation-480.webp 480w, assets/activity-mathematics-day-formation-800.webp 800w, assets/activity-mathematics-day-formation-1200.webp 1200w, assets/activity-mathematics-day-formation-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-mathematics-day-formation.jpeg" alt="Students forming Mathematics Day text" width="1600" height="1204" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Mathematics Day</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-mathematics-day-stage.jpg" alt="Students performing on National Mathematics Day">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-mathematics-day-stage-480.webp 480w, assets/activity-mathematics-day-stage-800.webp 800w, assets/activity-mathematics-day-stage-1200.webp 1200w, assets/activity-mathematics-day-stage-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-mathematics-day-stage.jpg" alt="Students performing on National Mathematics Day" width="1600" height="900" loading="lazy" decoding="async">
+          </picture>
           <figcaption>National Mathematics Day</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-tour-power-house.jpeg" alt="Students on educational tour at Nagarjuna Sagar Power House">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-tour-power-house-480.webp 480w, assets/activity-tour-power-house-800.webp 800w, assets/activity-tour-power-house-1200.webp 1200w, assets/activity-tour-power-house-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-tour-power-house.jpeg" alt="Students on educational tour at Nagarjuna Sagar Power House" width="1600" height="1204" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Educational Tour</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-tour-dam.jpeg" alt="Students visiting dam during educational tour">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-tour-dam-480.webp 480w, assets/activity-tour-dam-800.webp 800w, assets/activity-tour-dam-1200.webp 1200w, assets/activity-tour-dam-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-tour-dam.jpeg" alt="Students visiting dam during educational tour" width="1600" height="632" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Study Tour</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-tour-nandi.jpeg" alt="Students visiting Nandi statue during educational tour">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-tour-nandi-480.webp 480w, assets/activity-tour-nandi-800.webp 800w, assets/activity-tour-nandi-1200.webp 1200w, assets/activity-tour-nandi-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-tour-nandi.jpeg" alt="Students visiting Nandi statue during educational tour" width="1600" height="1204" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Historical Visit</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-tour-students.jpeg" alt="Students and teachers on educational tour">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-tour-students-480.webp 480w, assets/activity-tour-students-800.webp 800w, assets/activity-tour-students-1200.webp 1200w, assets/activity-tour-students-1204.webp 1204w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-tour-students.jpeg" alt="Students and teachers on educational tour" width="1204" height="1600" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Learning Outside Campus</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-tour-temple.jpeg" alt="Students visiting historical temple during educational tour">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-tour-temple-480.webp 480w, assets/activity-tour-temple-800.webp 800w, assets/activity-tour-temple-1200.webp 1200w, assets/activity-tour-temple-1204.webp 1204w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-tour-temple.jpeg" alt="Students visiting historical temple during educational tour" width="1204" height="1600" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Heritage Tour</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-zoo-park.jpg" alt="Students visiting zoo park on educational tour">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-zoo-park-480.webp 480w, assets/activity-zoo-park-800.webp 800w, assets/activity-zoo-park-1200.webp 1200w, assets/activity-zoo-park-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-zoo-park.jpg" alt="Students visiting zoo park on educational tour" width="1600" height="1204" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Zoo Park</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-industrial-visit.jpeg" alt="Students visiting an industrial site">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-industrial-visit-480.webp 480w, assets/activity-industrial-visit-800.webp 800w, assets/activity-industrial-visit-1200.webp 1200w, assets/activity-industrial-visit-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-industrial-visit.jpeg" alt="Students visiting an industrial site" width="1600" height="900" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Industrial Visit</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-prayer-assembly.jpeg" alt="Students standing in prayer assembly">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-prayer-assembly-480.webp 480w, assets/activity-prayer-assembly-800.webp 800w, assets/activity-prayer-assembly-1200.webp 1200w, assets/activity-prayer-assembly-1280.webp 1280w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-prayer-assembly.jpeg" alt="Students standing in prayer assembly" width="1280" height="576" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Prayer Assembly</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-parent-meet.jpeg" alt="Teachers visiting parents and students">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-parent-meet-480.webp 480w, assets/activity-parent-meet-800.webp 800w, assets/activity-parent-meet-1200.webp 1200w, assets/activity-parent-meet-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-parent-meet.jpeg" alt="Teachers visiting parents and students" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Parent Meet Up</figcaption>
         </figure>
         <figure>
-          <img src="assets/activity-national-festivals.jpg" alt="Students and staff celebrating national festival with flag hoisting">
+          <picture>
+            <source type="image/webp" srcset="assets/activity-national-festivals-480.webp 480w, assets/activity-national-festivals-800.webp 800w, assets/activity-national-festivals-1200.webp 1200w, assets/activity-national-festivals-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/activity-national-festivals.jpg" alt="Students and staff celebrating national festival with flag hoisting" width="1600" height="1067" loading="lazy" decoding="async">
+          </picture>
           <figcaption>National Festivals</figcaption>
         </figure>
       </div>
@@ -267,49 +360,85 @@
       </div>
       <div class="facilities-gallery">
         <figure>
-          <img src="assets/administration-block.jpg" alt="School administration block">
+          <picture>
+            <source type="image/webp" srcset="assets/administration-block-480.webp 480w, assets/administration-block-800.webp 800w, assets/administration-block-1200.webp 1200w, assets/administration-block-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/administration-block.jpg" alt="School administration block" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Administration Block</figcaption>
         </figure>
         <figure>
-          <img src="assets/school-busses.jpg" alt="School buses for student transport">
+          <picture>
+            <source type="image/webp" srcset="assets/school-busses-480.webp 480w, assets/school-busses-800.webp 800w, assets/school-busses-1200.webp 1200w, assets/school-busses-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/school-busses.jpg" alt="School buses for student transport" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>School Buses</figcaption>
         </figure>
         <figure>
-          <img src="assets/digital-classrooms.jpg" alt="Digital classroom facility">
+          <picture>
+            <source type="image/webp" srcset="assets/digital-classrooms-480.webp 480w, assets/digital-classrooms-800.webp 800w, assets/digital-classrooms-1200.webp 1200w, assets/digital-classrooms-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/digital-classrooms.jpg" alt="Digital classroom facility" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Digital Classrooms</figcaption>
         </figure>
         <figure>
-          <img src="assets/cct-lab.jpg" alt="Computer lab facility">
+          <picture>
+            <source type="image/webp" srcset="assets/cct-lab-480.webp 480w, assets/cct-lab-800.webp 800w, assets/cct-lab-1200.webp 1200w, assets/cct-lab-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/cct-lab.jpg" alt="Computer lab facility" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Computer Lab</figcaption>
         </figure>
         <figure>
-          <img src="assets/seminar-hall.jpg" alt="School seminar hall">
+          <picture>
+            <source type="image/webp" srcset="assets/seminar-hall-480.webp 480w, assets/seminar-hall-800.webp 800w, assets/seminar-hall-1200.webp 1200w, assets/seminar-hall-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/seminar-hall.jpg" alt="School seminar hall" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Seminar Hall</figcaption>
         </figure>
         <figure>
-          <img src="assets/classrooms-varanda.jpg" alt="Classroom veranda area">
+          <picture>
+            <source type="image/webp" srcset="assets/classrooms-varanda-480.webp 480w, assets/classrooms-varanda-800.webp 800w, assets/classrooms-varanda-1200.webp 1200w, assets/classrooms-varanda-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/classrooms-varanda.jpg" alt="Classroom veranda area" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Classroom Veranda</figcaption>
         </figure>
         <figure>
-          <img src="assets/playground.jpg" alt="School playground">
+          <picture>
+            <source type="image/webp" srcset="assets/playground-480.webp 480w, assets/playground-800.webp 800w, assets/playground-1200.webp 1200w, assets/playground-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/playground.jpg" alt="School playground" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Playground</figcaption>
         </figure>
         <figure>
-          <img src="assets/wash-rooms.jpg" alt="School wash room facilities">
+          <picture>
+            <source type="image/webp" srcset="assets/wash-rooms-480.webp 480w, assets/wash-rooms-800.webp 800w, assets/wash-rooms-1200.webp 1200w, assets/wash-rooms-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/wash-rooms.jpg" alt="School wash room facilities" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Wash Rooms</figcaption>
         </figure>
         <figure>
-          <img src="assets/solar-power.jpg" alt="Solar power facility on campus">
+          <picture>
+            <source type="image/webp" srcset="assets/solar-power-480.webp 480w, assets/solar-power-800.webp 800w, assets/solar-power-1200.webp 1200w, assets/solar-power-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/solar-power.jpg" alt="Solar power facility on campus" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Solar Power</figcaption>
         </figure>
         <figure>
-          <img src="assets/hostel-rooms.jpg" alt="">
+          <picture>
+            <source type="image/webp" srcset="assets/hostel-rooms-480.webp 480w, assets/hostel-rooms-800.webp 800w, assets/hostel-rooms-1200.webp 1200w, assets/hostel-rooms-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/hostel-rooms.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
         </figure>
         <figure>
-          <img src="assets/hostel-varanda.jpg" alt="">
+          <picture>
+            <source type="image/webp" srcset="assets/hostel-varanda-480.webp 480w, assets/hostel-varanda-800.webp 800w, assets/hostel-varanda-1200.webp 1200w, assets/hostel-varanda-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/hostel-varanda.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
         </figure>
         <figure>
-          <img src="assets/hostel-study-hours.jpeg" alt="">
+          <picture>
+            <source type="image/webp" srcset="assets/hostel-study-hours-480.webp 480w, assets/hostel-study-hours-800.webp 800w, assets/hostel-study-hours-1200.webp 1200w, assets/hostel-study-hours-1600.webp 1600w" sizes="(max-width: 760px) 94vw, (max-width: 1180px) 46vw, 25vw">
+            <img src="assets/hostel-study-hours.jpeg" alt="" width="1600" height="1204" loading="lazy" decoding="async">
+          </picture>
         </figure>
       </div>
     </section>
@@ -318,12 +447,18 @@
       <div class="section-heading">
         <p class="eyebrow">Academics</p>
         <h2>Curriculum designed for strong basics and future exams</h2>
-        <img class="lead-logo" src="assets/lead-logo.jpeg" alt="Powered by LEAD">
+        <picture>
+          <source type="image/webp" srcset="assets/lead-logo-240.webp 240w, assets/lead-logo-480.webp 480w, assets/lead-logo-649.webp 649w" sizes="(max-width: 720px) 180px, 260px">
+          <img class="lead-logo" src="assets/lead-logo.jpeg" alt="Powered by LEAD" width="649" height="557" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="curriculum-flow">
         <details class="curriculum-node">
           <summary>
-            <img class="curriculum-image" src="assets/curriculum-primary.png" alt="Primary students learning in classroom">
+            <picture>
+              <source type="image/webp" srcset="assets/curriculum-primary-320.webp 320w, assets/curriculum-primary-480.webp 480w, assets/curriculum-primary-720.webp 720w, assets/curriculum-primary-1000.webp 1000w" sizes="(max-width: 760px) 80vw, (max-width: 1180px) 30vw, 220px">
+              <img class="curriculum-image" src="assets/curriculum-primary.png" alt="Primary students learning in classroom" width="1000" height="1000" loading="lazy" decoding="async">
+            </picture>
             <span class="card-icon">01</span>
             <h3>Nursery to Class V</h3>
           </summary>
@@ -331,7 +466,10 @@
         </details>
         <details class="curriculum-node">
           <summary>
-            <img class="curriculum-image" src="assets/curriculum-foundation.png" alt="Students preparing for foundation exams">
+            <picture>
+              <source type="image/webp" srcset="assets/curriculum-foundation-320.webp 320w, assets/curriculum-foundation-480.webp 480w, assets/curriculum-foundation-720.webp 720w, assets/curriculum-foundation-1000.webp 1000w" sizes="(max-width: 760px) 80vw, (max-width: 1180px) 30vw, 220px">
+              <img class="curriculum-image" src="assets/curriculum-foundation.png" alt="Students preparing for foundation exams" width="1000" height="1000" loading="lazy" decoding="async">
+            </picture>
             <span class="card-icon">02</span>
             <h3>Classes VI to X</h3>
           </summary>
@@ -339,7 +477,10 @@
         </details>
         <details class="curriculum-node">
           <summary>
-            <img class="curriculum-image" src="assets/curriculum-digital.png" alt="Students using digital learning tools">
+            <picture>
+              <source type="image/webp" srcset="assets/curriculum-digital-320.webp 320w, assets/curriculum-digital-480.webp 480w, assets/curriculum-digital-720.webp 720w, assets/curriculum-digital-1000.webp 1000w" sizes="(max-width: 760px) 80vw, (max-width: 1180px) 30vw, 220px">
+              <img class="curriculum-image" src="assets/curriculum-digital.png" alt="Students using digital learning tools" width="1000" height="1000" loading="lazy" decoding="async">
+            </picture>
             <span class="card-icon">03</span>
             <h3>Digital Learning</h3>
           </summary>
@@ -347,14 +488,20 @@
         </details>
         <details class="curriculum-node">
           <summary>
-            <img class="curriculum-image" src="assets/curriculum-roa.png" alt="Students practicing aptitude activities">
+            <picture>
+              <source type="image/webp" srcset="assets/curriculum-roa-320.webp 320w, assets/curriculum-roa-480.webp 480w, assets/curriculum-roa-720.webp 720w, assets/curriculum-roa-1000.webp 1000w" sizes="(max-width: 760px) 80vw, (max-width: 1180px) 30vw, 220px">
+              <img class="curriculum-image" src="assets/curriculum-roa.png" alt="Students practicing aptitude activities" width="1000" height="1000" loading="lazy" decoding="async">
+            </picture>
             <h3>ROA Curriculum</h3>
           </summary>
           <p>Classes III to V receive ROA curriculum support to build early aptitude and confidence for IIT-oriented learning.</p>
         </details>
         <details class="curriculum-node">
           <summary>
-            <img class="curriculum-image" src="assets/curriculum-reasoning.png" alt="Students solving reasoning puzzles">
+            <picture>
+              <source type="image/webp" srcset="assets/curriculum-reasoning-320.webp 320w, assets/curriculum-reasoning-480.webp 480w, assets/curriculum-reasoning-720.webp 720w, assets/curriculum-reasoning-1000.webp 1000w" sizes="(max-width: 760px) 80vw, (max-width: 1180px) 30vw, 220px">
+              <img class="curriculum-image" src="assets/curriculum-reasoning.png" alt="Students solving reasoning puzzles" width="1000" height="1000" loading="lazy" decoding="async">
+            </picture>
             <h3>Reasoning for Competitive Exams</h3>
           </summary>
           <p>From this year, reasoning is introduced as an important subject. For Classes I to V, it supports preparation for Navodaya, Sainik School, TSRJC, and Gurukul exams. For Classes VI to IX, it helps students prepare for government and other competitive exams where reasoning carries high marks.</p>
@@ -380,7 +527,10 @@
             <p>Highest student score out of 600 marks.</p>
           </article>
         </div>
-        <img class="results-image" src="assets/results-2025-26.jpg" alt="Sri Adarshavani Group of Schools 2025-26 SSC results poster">
+        <picture>
+          <source type="image/webp" srcset="assets/results-2025-26-640.webp 640w, assets/results-2025-26-960.webp 960w, assets/results-2025-26-1280.webp 1280w, assets/results-2025-26-1800.webp 1800w" sizes="(max-width: 760px) 94vw, 960px">
+          <img class="results-image" src="assets/results-2025-26.jpg" alt="Sri Adarshavani Group of Schools 2025-26 SSC results poster" width="1800" height="1329" loading="lazy" decoding="async">
+        </picture>
       </div>
     </section>
 
@@ -486,7 +636,10 @@
             <p>Highest student score out of 600 marks.</p>
           </article>
         </div>
-        <img class="results-image" src="assets/results-2025-26.jpg" alt="Sri Adarshavani Group of Schools 2025-26 SSC results poster">
+        <picture>
+          <source type="image/webp" srcset="assets/results-2025-26-640.webp 640w, assets/results-2025-26-960.webp 960w, assets/results-2025-26-1280.webp 1280w, assets/results-2025-26-1800.webp 1800w" sizes="(max-width: 760px) 94vw, 960px">
+          <img class="results-image" src="assets/results-2025-26.jpg" alt="Sri Adarshavani Group of Schools 2025-26 SSC results poster" width="1800" height="1329" loading="lazy" decoding="async">
+        </picture>
       </div>
     </section>
   </div>
@@ -693,6 +846,34 @@ Address: ${studentAddress}`;
 
     classSelect.addEventListener("change", updateSections);
     updateSections();
+
+    // Aerial video play/pause handler
+    const aerialVideo = document.getElementById("aerialVideo");
+    const aerialPlayButton = document.getElementById("aerialPlayButton");
+
+    if (aerialVideo && aerialPlayButton) {
+      aerialPlayButton.addEventListener("click", () => {
+        if (aerialVideo.paused) {
+          aerialVideo.play();
+          aerialPlayButton.classList.add("playing");
+        }
+      });
+
+      aerialVideo.addEventListener("click", () => {
+        if (!aerialVideo.paused) {
+          aerialVideo.pause();
+          aerialPlayButton.classList.remove("playing");
+        }
+      });
+
+      aerialVideo.addEventListener("pause", () => {
+        aerialPlayButton.classList.remove("playing");
+      });
+
+      aerialVideo.addEventListener("play", () => {
+        aerialPlayButton.classList.add("playing");
+      });
+    }
   </script>
 </body>
 </html>
