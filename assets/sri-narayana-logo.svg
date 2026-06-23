@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Sri Narayana High School logo">
+  <g fill="#27338f">
+    <!-- axis-aligned square: diagonal points -->
+    <rect x="140" y="140" width="220" height="220"/>
+    <!-- diamond: sharp N/E/S/W points -->
+    <polygon points="250,30 470,250 250,470 30,250"/>
+  </g>
+  <text x="250" y="255" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="150" text-anchor="middle" dominant-baseline="central" letter-spacing="2">SRI</text>
+</svg>
