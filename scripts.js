@@ -74,6 +74,9 @@
           </svg>
         </a>
       </div>
+      <div class="footer-copyright">
+        <small>&copy; 2026 Sri Adarshavani Vidyanikethan High School. All rights reserved.</small>
+      </div>
     </footer>
     <a class="whatsapp-button" href="https://wa.me/${schoolWhatsApp}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">

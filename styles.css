@@ -1481,6 +1481,16 @@ body.nav-open .nav-toggle span:nth-child(3) {
   transform: translateY(-2px);
 }
 
+.footer-copyright {
+  flex-basis: 100%;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+}
+
 @media (max-width: 1120px) {
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto;
