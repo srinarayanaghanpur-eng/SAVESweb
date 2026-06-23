@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Send an admission enquiry to Sri Adarshavani Vidyanikethan High School for Nursery to Class X, hostel, transport, and campus visit support.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/school-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/school-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/school-logo.png">
+  <link rel="preload" as="image" href="assets/classrooms-varanda-1200.webp" type="image/webp" imagesrcset="assets/classrooms-varanda-480.webp 480w, assets/classrooms-varanda-800.webp 800w, assets/classrooms-varanda-1200.webp 1200w, assets/classrooms-varanda-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+  <title>Admission Enquiry | Sri Adarshavani Vidyanikethan High School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body data-page="admission">
+  <main id="admission">
+    <section class="page-hero">
+      <picture>
+        <source type="image/webp" srcset="assets/classrooms-varanda-480.webp 480w, assets/classrooms-varanda-800.webp 800w, assets/classrooms-varanda-1200.webp 1200w, assets/classrooms-varanda-1600.webp 1600w" sizes="100vw">
+        <img src="assets/classrooms-varanda.jpg" alt="School classroom veranda" width="1600" height="1200" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="eyebrow">Admissions Enquiry</p>
+        <h1>Plan the right start for your child</h1>
+        <p>Send student details, preferred class, section, hostel or transport needs, and a callback number to the school office.</p>
+      </div>
+    </section>
+
+    <section class="section admission-suite">
+      <div class="section-heading">
+        <p class="eyebrow">Admission Desk</p>
+        <h2>Nursery to Class X admissions support</h2>
+        <p class="section-note">Use the form, WhatsApp, or email. The school office can guide you on class availability, documents, fees, hostel, transport, and campus visits.</p>
+      </div>
+
+      <div class="admission-layout">
+        <div class="process-panel">
+          <article>
+            <span>01</span>
+            <h3>Share student details</h3>
+            <p>Parent name, student name, class, section preference, and contact number.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Office callback</h3>
+            <p>The school team checks availability and guides you on visit timing and documents.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Campus visit</h3>
+            <p>Meet the office team, see classrooms, hostel, transport support, and learning facilities.</p>
+          </article>
+        </div>
+
+        <form class="admission-form page-form" method="post" action="/api/admissions" data-admission-form>
+          <div class="form-grid">
+            <label>
+              Student Name
+              <input type="text" name="studentName" placeholder="Student full name" autocomplete="name" required>
+            </label>
+            <label>
+              Parent Name
+              <input type="text" name="parentName" placeholder="Parent / guardian name" required>
+            </label>
+            <label>
+              Class Applying For
+              <select name="className" required data-class-select>
+                <option value="">Select class</option>
+                <option>Nursery</option>
+                <option>LKG</option>
+                <option>UKG</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+                <option>V</option>
+                <option>VI</option>
+                <option>VII</option>
+                <option>VIII</option>
+                <option>IX</option>
+                <option>X</option>
+              </select>
+            </label>
+            <label>
+              Section
+              <select name="sectionName" required data-section-select>
+                <option value="">Select section</option>
+              </select>
+            </label>
+            <label>
+              Mobile Number
+              <input type="tel" name="mobileNumber" placeholder="Parent mobile number" autocomplete="tel" required>
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="emailAddress" placeholder="Optional email">
+            </label>
+            <label>
+              Need
+              <select name="campusNeed">
+                <option value="">Select if needed</option>
+                <option>Day scholar admission</option>
+                <option>Hostel facility</option>
+                <option>Transport route</option>
+                <option>Campus visit</option>
+                <option>Fees and documents</option>
+              </select>
+            </label>
+            <label>
+              Address
+              <textarea name="studentAddress" rows="3" placeholder="Village / town and address"></textarea>
+            </label>
+          </div>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Anything else the school should know"></textarea>
+          </label>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          <div class="form-actions">
+            <button type="submit" data-submit-admission>Submit Enquiry</button>
+            <button type="button" data-send-email>Send by Email</button>
+            <button type="button" data-send-whatsapp>Send by WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section muted info-strip">
+      <article>
+        <span>Documents</span>
+        <h3>Carry basic records</h3>
+        <p>Previous school record, Aadhaar details, passport photos, and parent contact details help the office process admission faster.</p>
+      </article>
+      <article>
+        <span>Facilities</span>
+        <h3>Ask about hostel and transport</h3>
+        <p>Parents can discuss hostel care, study hours, bus routes, food, and safety arrangements during enquiry.</p>
+      </article>
+      <article>
+        <span>Guidance</span>
+        <h3>Meet before deciding</h3>
+        <p>Campus visits are encouraged so families can see classrooms, labs, playground, and student spaces directly.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

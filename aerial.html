@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0d6b68">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/school-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/school-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/school-logo.png">
+  <link rel="preload" as="image" href="assets/school-hero-1280.webp" type="image/webp" imagesrcset="assets/school-hero-640.webp 640w, assets/school-hero-960.webp 960w, assets/school-hero-1280.webp 1280w" imagesizes="100vw" fetchpriority="high">
+  <title>Aerial View | Sri Adarshavani Vidyanikethan High School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body data-page="aerial">
+  <main id="aerial">
+    <section class="section aerial-section">
+      <div class="aerial-grid single-video">
+        <video id="aerialVideo" muted playsinline preload="none" poster="assets/school-hero-1280.webp">
+          <source src="assets/school-aerial-2-10mb.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="aerial-overlay">
+          <div class="aerial-heading-content">
+            <p class="eyebrow">Aerial View</p>
+            <h1>Drone view of our school campus</h1>
+          </div>
+          <button class="aerial-play-button" id="aerialPlayButton" aria-label="Play aerial video">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="29" fill="white" fill-opacity="0.9"/>
+              <path d="M24 20v20l14-10z" fill="#000"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

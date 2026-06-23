@@ -1,0 +1,41 @@
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Dependencies and package manager output
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local server logs
+*.log
+server.err.log
+server.out.log
+
+# Local form submissions
+data/admission-enquiries.json
+data/teacher-job-enquiries.json
+data/contact-enquiries.json
+
+# Large local media files
+*.mp4
+!assets/*-10mb.mp4
+.tools/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/cache output
+dist/
+build/
+.cache/
+.tmp/
+test-results/
+playwright-report/
+output/
