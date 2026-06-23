@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Send a teacher job enquiry to Sri Adarshavani Vidyanikethan High School with subject expertise, qualification, experience, and joining details.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/school-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/school-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/school-logo.png">
+  <link rel="preload" as="image" href="assets/activity-classroom-1200.webp" type="image/webp" imagesrcset="assets/activity-classroom-480.webp 480w, assets/activity-classroom-800.webp 800w, assets/activity-classroom-1200.webp 1200w, assets/activity-classroom-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+  <title>Teacher Job Enquiry | Sri Adarshavani Vidyanikethan High School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body data-page="careers">
+  <main id="careers">
+    <section class="page-hero">
+      <picture>
+        <source type="image/webp" srcset="assets/activity-classroom-480.webp 480w, assets/activity-classroom-800.webp 800w, assets/activity-classroom-1200.webp 1200w, assets/activity-classroom-1600.webp 1600w" sizes="100vw">
+        <img src="assets/activity-classroom.jpg" alt="Teacher guiding students in classroom" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high">
+      </picture>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="eyebrow">Teacher Job Enquiry</p>
+        <h1>Join a school that values strong teachers</h1>
+        <p>Share your qualification, subject expertise, experience, and joining availability with the school management team.</p>
+      </div>
+    </section>
+
+    <section class="section careers-suite">
+      <div class="section-heading">
+        <p class="eyebrow">Careers</p>
+        <h2>Teaching talent for a disciplined, future-ready campus</h2>
+        <p class="section-note">The school welcomes enquiries from teachers who can bring subject clarity, classroom discipline, communication, and care for students.</p>
+      </div>
+
+      <div class="role-grid">
+        <article>
+          <span>Primary</span>
+          <h3>Foundational learning</h3>
+          <p>Teachers for early literacy, numeracy, activity-based learning, and child-friendly routines.</p>
+        </article>
+        <article>
+          <span>High School</span>
+          <h3>Maths, science, English, social</h3>
+          <p>Subject teachers who can prepare students for strong board performance and conceptual clarity.</p>
+        </article>
+        <article>
+          <span>Digital Learning</span>
+          <h3>LEAD and smart classroom support</h3>
+          <p>Teachers comfortable with digital lessons, assessments, revision plans, and student tracking.</p>
+        </article>
+        <article>
+          <span>Residential Support</span>
+          <h3>Hostel study hours and mentoring</h3>
+          <p>Educators and wardens who can support study discipline, wellbeing, and parent communication.</p>
+        </article>
+      </div>
+
+      <div class="career-layout">
+        <aside class="career-note">
+          <p class="eyebrow">What to Share</p>
+          <h2>Help management review your profile faster</h2>
+          <ul>
+            <li>Highest qualification and teacher training details.</li>
+            <li>Subjects and classes you can confidently handle.</li>
+            <li>Years of experience and current location.</li>
+            <li>Expected joining time and preferred role.</li>
+          </ul>
+        </aside>
+
+        <form class="admission-form page-form career-form" method="post" action="/api/careers" data-career-form>
+          <div class="form-grid">
+            <label>
+              Applicant Name
+              <input type="text" name="applicantName" placeholder="Full name" autocomplete="name" required>
+            </label>
+            <label>
+              Mobile Number
+              <input type="tel" name="mobileNumber" placeholder="Mobile number" autocomplete="tel" required>
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="emailAddress" placeholder="Optional email" autocomplete="email">
+            </label>
+            <label>
+              Qualification
+              <input type="text" name="qualification" placeholder="B.Ed, D.Ed, M.Sc, B.A, etc." required>
+            </label>
+            <label>
+              Subject Expertise
+              <input type="text" name="subjectExpertise" placeholder="Maths / English / Science / Primary" required>
+            </label>
+            <label>
+              Experience
+              <select name="experience">
+                <option value="">Select experience</option>
+                <option>Fresher</option>
+                <option>1-2 years</option>
+                <option>3-5 years</option>
+                <option>5+ years</option>
+              </select>
+            </label>
+            <label>
+              Preferred Role
+              <select name="preferredRole" required>
+                <option value="">Select role</option>
+                <option>Pre-primary Teacher</option>
+                <option>Primary Teacher</option>
+                <option>High School Subject Teacher</option>
+                <option>IIT Foundation Faculty</option>
+                <option>Computer / Digital Learning Teacher</option>
+                <option>Hostel Study Support</option>
+                <option>Other School Role</option>
+              </select>
+            </label>
+            <label>
+              Joining Window
+              <input type="text" name="joiningWindow" placeholder="Immediate / after notice period">
+            </label>
+          </div>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Mention classes handled, current location, salary expectation, or interview availability"></textarea>
+          </label>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          <div class="form-actions">
+            <button type="submit" data-submit-career>Submit Job Enquiry</button>
+            <button type="button" data-send-email>Send by Email</button>
+            <button type="button" data-send-whatsapp>Send by WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -15,6 +15,11 @@ yarn-error.log*
 server.err.log
 server.out.log
 
+# Local form submissions
+data/admission-enquiries.json
+data/teacher-job-enquiries.json
+data/contact-enquiries.json
+
 # Large local media files
 *.mp4
 !assets/*-10mb.mp4
@@ -30,3 +35,7 @@ Thumbs.db
 dist/
 build/
 .cache/
+.tmp/
+test-results/
+playwright-report/
+output/
