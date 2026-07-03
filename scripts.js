@@ -83,6 +83,21 @@
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.991 1.523 9.871 9.871 0 003.223 19.007h.004c2.744 0 5.331-1.042 7.278-2.931 1.947-1.889 3.022-4.455 3.022-7.146 0-5.432-4.424-9.853-9.88-9.853m8.771 16.21c-2.328 2.312-5.412 3.588-8.771 3.588a8.87 8.87 0 01-4.519-1.212l-.324-.194-3.36.881.898-3.289-.21-.336A8.862 8.862 0 012.048 12c0-4.964 4.027-9 8.981-9 2.405 0 4.667.936 6.358 2.646 1.692 1.71 2.624 3.957 2.624 6.354 0 4.964-4.027 9-8.98 9z"/>
       </svg>
     </a>
+    <nav class="mobile-bar" aria-label="Quick actions">
+      <a class="call" href="tel:${schoolPhone}" aria-label="Call school">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+        Call
+      </a>
+      <a class="admit" href="admission.html" aria-label="Admission enquiry">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.82a1 1 0 00.55.89l6 3a1 1 0 00.9 0l6-3a1 1 0 00.55-.89v-3.82l-7 3.82-7-3.82z"/></svg>
+        Admission
+      </a>
+      <a class="wa" href="https://wa.me/${schoolWhatsApp}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.43-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.9 9.9 0 004.74 1.2c5.46 0 9.9-4.43 9.9-9.9S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.19-1.58-1.19-3.02s.76-2.14 1.03-2.43c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.03.89 2.18.07.14.12.31.02.5-.09.2-.14.32-.27.49-.14.16-.29.37-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.93 1.93 1.22 2.21 1.36.27.14.43.12.59-.07.16-.2.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.11.07.64-.17 1.32z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <div class="scroll-progress" aria-hidden="true"></div>
   `);
 
   const navToggle = document.querySelector(".nav-toggle");
@@ -351,4 +366,232 @@
   document.querySelectorAll("[data-call-school]").forEach((link) => {
     link.setAttribute("href", `tel:${schoolPhone}`);
   });
+
+  /* =======================================================================
+     Futuristic interaction layer
+     ======================================================================= */
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* ---- Scroll progress bar + sticky header state ---- */
+  const progressBar = document.querySelector(".scroll-progress");
+  const siteHeader = document.querySelector(".site-header");
+  const mobileBar = document.querySelector(".mobile-bar");
+  let ticking = false;
+
+  function onScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+    if (progressBar) progressBar.style.transform = `scaleX(${ratio})`;
+    if (siteHeader) siteHeader.classList.toggle("is-scrolled", scrollTop > 20);
+    if (mobileBar) mobileBar.classList.toggle("is-in", scrollTop > 260);
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+  onScroll();
+
+  /* ---- Scroll reveal (auto-tag common building blocks) ---- */
+  const revealSelectors = [
+    ".section-heading", ".enquiry-card", ".link-card", ".stats > div",
+    ".future-card", ".journey-step", ".activity-list article", ".role-grid article",
+    ".info-strip article", ".facilities-gallery figure", ".activity-gallery figure",
+    ".curriculum-node", ".leadership article", ".branch-card", ".result-stats article",
+    ".campus-intel-picture", ".image-band-grid picture", ".about-grid > p",
+    ".about-grid .stats", ".contact-form", ".admission-form", ".career-note",
+    ".process-panel article", ".map-panel", ".feature-image", ".results-image",
+  ];
+  const revealEls = [];
+  revealSelectors.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      if (el.closest(".hero") || el.hasAttribute("data-reveal")) return;
+      el.setAttribute("data-reveal", "");
+      revealEls.push(el);
+    });
+  });
+  // Stagger siblings within the same grid for a cascade effect
+  revealEls.forEach((el) => {
+    const parent = el.parentElement;
+    if (!parent) return;
+    const siblings = Array.from(parent.children).filter((c) => c.hasAttribute("data-reveal"));
+    const idx = siblings.indexOf(el);
+    if (idx > 0) el.setAttribute("data-reveal-delay", String(Math.min(idx, 5)));
+  });
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revealEls.forEach((el) => revealObserver.observe(el));
+  }
+
+  /* ---- Animated counters ---- */
+  const counters = Array.from(document.querySelectorAll(".stats strong, .result-stats strong"));
+  function animateCounter(el) {
+    const raw = el.textContent.trim();
+    const match = raw.match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/);
+    if (!match) return;
+    const prefix = match[1];
+    const numStr = match[2].replace(/,/g, "");
+    const suffix = match[3];
+    const target = parseFloat(numStr);
+    if (!isFinite(target)) return;
+    const hadComma = match[2].includes(",");
+    const decimals = (numStr.split(".")[1] || "").length;
+    const duration = 1400;
+    const start = performance.now();
+
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = target * eased;
+      let shown = decimals ? value.toFixed(decimals) : Math.round(value).toString();
+      if (hadComma) shown = Number(shown).toLocaleString("en-IN");
+      el.textContent = prefix + shown + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  if (!reduceMotion && counters.length && "IntersectionObserver" in window) {
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+
+  /* ---- Magnetic buttons + 3D card tilt (desktop, fine pointer only) ---- */
+  if (finePointer && !reduceMotion) {
+    document.querySelectorAll(".button.primary, .button.secondary, .header-action").forEach((btn) => {
+      btn.addEventListener("pointermove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width / 2;
+        const my = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${mx * 0.18}px, ${my * 0.28}px) translateY(-3px) scale(1.03)`;
+      });
+      btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
+    });
+
+    document.querySelectorAll(".enquiry-card, .link-card, .future-card").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${py * -6}deg) rotateY(${px * 8}deg) translateY(-8px)`;
+      });
+      card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+    });
+  }
+
+  /* ---- Hero parallax + floating orbs + particle canvas ---- */
+  const hero = document.querySelector(".hero");
+  if (hero && !reduceMotion) {
+    const heroImg = hero.querySelector("img");
+    if (heroImg) {
+      window.addEventListener("scroll", () => {
+        const offset = (window.scrollY || 0) * 0.18;
+        if (offset < hero.offsetHeight) {
+          heroImg.style.transform = `scale(1.12) translateY(${offset}px)`;
+        }
+      }, { passive: true });
+    }
+
+    if (!hero.querySelector(".hero-orbs")) {
+      hero.insertAdjacentHTML("afterbegin",
+        '<div class="hero-orbs"><span class="hero-orb o1"></span><span class="hero-orb o2"></span><span class="hero-orb o3"></span><span class="hero-orb o4"></span></div>');
+    }
+
+    // Lightweight particle constellation behind the hero
+    const canvas = document.createElement("canvas");
+    canvas.className = "hero-particles";
+    Object.assign(canvas.style, {
+      position: "absolute", inset: "0", zIndex: "1",
+      width: "100%", height: "100%", pointerEvents: "none",
+    });
+    hero.insertBefore(canvas, hero.querySelector(".hero-content"));
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let raf = null;
+    const isSmall = window.innerWidth < 760;
+    const COUNT = isSmall ? 26 : 60;
+    const LINK_DIST = isSmall ? 90 : 130;
+
+    function sizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = hero.offsetWidth * dpr;
+      canvas.height = hero.offsetHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function initParticles() {
+      particles = Array.from({ length: COUNT }, () => ({
+        x: Math.random() * hero.offsetWidth,
+        y: Math.random() * hero.offsetHeight,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.6 + 0.6,
+      }));
+    }
+    function draw() {
+      const w = hero.offsetWidth;
+      const h = hero.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(160, 200, 255, 0.7)";
+        ctx.fill();
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < LINK_DIST) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(96, 165, 250, ${0.16 * (1 - dist / LINK_DIST)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    function startParticles() {
+      sizeCanvas(); initParticles();
+      cancelAnimationFrame(raf);
+      draw();
+    }
+    startParticles();
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(startParticles, 200);
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) { cancelAnimationFrame(raf); }
+      else { draw(); }
+    });
+  }
 })();
