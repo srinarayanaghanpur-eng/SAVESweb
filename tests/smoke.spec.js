@@ -31,6 +31,18 @@ test.describe("site smoke", () => {
     }
   });
 
+  test("publishes crawler discovery files", async ({ request }) => {
+    const sitemap = await request.get("/sitemap.xml");
+    expect(sitemap.ok()).toBeTruthy();
+    expect(sitemap.headers()["content-type"]).toContain("application/xml");
+    expect(await sitemap.text()).toContain("https://sriadarshavanihighschool.netlify.app/");
+
+    const robots = await request.get("/robots.txt");
+    expect(robots.ok()).toBeTruthy();
+    expect(robots.headers()["content-type"]).toContain("text/plain");
+    expect(await robots.text()).toContain("Sitemap: https://sriadarshavanihighschool.netlify.app/sitemap.xml");
+  });
+
   test("mobile navigation remains visible and tappable at 320px", async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 780 });
     await page.goto("/index.html");
